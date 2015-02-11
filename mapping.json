@@ -1,0 +1,7 @@
+{
+    "mappings" : {
+       "json": {
+            "_source": {"enabled": false} }
+        }
+    }
+}

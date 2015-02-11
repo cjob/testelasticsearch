@@ -1,8 +1,11 @@
 
+echo off
 sed -e 's/pet/pet%1/g' petstore.json > json\pet%1store.json
+echo adding with content
 curl -XPUT "http://localhost:9200/addcontent/json/%1" -d @json\pet%1store.json
-curl -XPUT "http://localhost:9200/nocontent/json/" -d @json\pet%1store.json
 curl -POST "http://localhost:9200/addcontent/_flush"
+echo adding without content
+curl -XPUT "http://localhost:9200/nocontent/json/%1" -d @json\pet%1store.json
 curl -POST "http://localhost:9200/nocontent/_flush"
 
 
